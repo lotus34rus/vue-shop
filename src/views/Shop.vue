@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="container">
     <h1>Welcome to the watch catalog</h1>
    <div class="row">
     <div class="col s12 m4"
