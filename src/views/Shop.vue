@@ -1,9 +1,6 @@
 <template>
   <div class="about">
     <h1>Welcome to the watch catalog</h1>
-
-    <!-- <img v-for='watch of watches' :src="watch.img" alt="" :key="watch.id"> -->
-
    <div class="row">
     <div class="col s12 m4"
      v-for='watch of watches'
@@ -18,7 +15,7 @@
           <p>{{watch.desc}}</p>
         </div>
         <div class="card-action">
-          <a href="#">Detail</a>
+          <a @click.prevent="$router.push('/product/'+watch.id)">Detail</a>
         </div>
       </div>
     </div>
