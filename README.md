@@ -2,7 +2,7 @@
 
 ## Used libs
 ```
-Vue, Vuex, Vue-router
+Vue, Vuex, Vue-router, Materialize
 ```
 
 ## Project setup

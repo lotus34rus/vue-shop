@@ -13,13 +13,13 @@ export default {
                 title: 'Rolex Aquamarine',
                 price: 320000,
                 desc: "Fully descriprion for Rolex",
-                img: " img/shop/rolex/rolex.jpg"
+                img: "img/shop/rolex/rolex.jpg"
             }
         ]
     },
 
     actions: {
-
+      
     },
 
     mutations: {
@@ -28,10 +28,10 @@ export default {
     getters: {
         getAllWathes : (state) => {            
             return state.watches;
-        },
+        }, 
 
-        getWatchById : (state, id) => {
-            return state.watches.filters(watch => watch.id === id);
+        getWatchById: state => id => {
+            return state.watches.filter(w => w.id == id);
         }
     }
 }
