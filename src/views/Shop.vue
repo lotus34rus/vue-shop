@@ -4,7 +4,7 @@
    <div class="row">
     <div class="col s12 m4"
      v-for='watch of watches'
-      :key="watch.id"
+      :key="watch._id"
     >
       <div class="card">
         <div class="card-image">
@@ -15,7 +15,7 @@
           <p>{{watch.desc}}</p>
         </div>
         <div class="card-action">
-          <a @click.prevent="$router.push('/product/'+watch.id)">Detail</a>
+          <a @click.prevent="$router.push('/product/'+watch._id)">Detail</a>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
     const response = await ProductsService.fetchProducts()
     console.log(response);
     
-    this.watches = response.data
+    this.watches = response.data.products
   },
 }
 </script>
