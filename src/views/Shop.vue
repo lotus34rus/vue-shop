@@ -29,6 +29,8 @@
 
 
 <script>
+import ProductsService from '@/services/ProductsService'
+
 export default {
   name: "Shop",
   data(){
@@ -38,8 +40,13 @@ export default {
   },
 
 
-  mounted() {
-    this.watches = this.$store.getters.getAllWathes;
+  
+  async mounted() {
+    // this.watches = this.$store.getters.getAllWathes;
+    const response = await ProductsService.fetchProducts()
+    console.log(response);
+    
+    this.watches = response.data
   },
 }
 </script>

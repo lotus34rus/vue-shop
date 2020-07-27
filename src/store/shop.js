@@ -6,14 +6,25 @@ export default {
                 title: 'Paul Rich v1',
                 price: 3200,
                 desc: "Fully descriprion for PRv1",
-                img: "img/shop/paul-rich/v1.jpg"
+                img: "img/shop/paul-rich/v1.jpg",
+                brand: 'Paul Rich'
             },
             {
                 id: 2,
                 title: 'Rolex Aquamarine',
                 price: 320000,
                 desc: "Fully descriprion for Rolex",
-                img: "img/shop/rolex/rolex.jpg"
+                img: "img/shop/rolex/rolex.jpg",
+                brand: "Rolex"
+            },
+
+            {
+                id: 3,
+                title: 'Rolex  2',
+                price: 3200000,
+                desc: "Fully descriprion for Rolex",
+                img: "img/shop/rolex/rolex.jpg",
+                brand: "Rolex"
             }
         ]
     },
