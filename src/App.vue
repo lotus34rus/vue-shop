@@ -1,32 +1,21 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/shop">Shop</router-link>
-    </div>
-    <router-view/>
+  <div id="app" >
+
+    <nav class="teal">
+      <div class="nav-wrapper container">
+        <router-link to="/" class="brand-logo">Logo</router-link>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><router-link to="/">Home</router-link> </li>
+              <li><router-link to="/shop">Shop</router-link></li> 
+        </ul>
+      </div>
+    </nav>
+
+    <router-view class="container" />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  @import '~materialize-css/dist/css/materialize.min.css';
+  @import 'assets/index.css'; 
 </style>
