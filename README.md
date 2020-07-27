@@ -1,4 +1,9 @@
-# dm-code
+# Simple catalog used Vue.js
+
+## Used libs
+```
+Vue, Vuex, Vue-router
+```
 
 ## Project setup
 ```
@@ -14,6 +19,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
