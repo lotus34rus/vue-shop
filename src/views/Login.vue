@@ -6,7 +6,6 @@
         <input
           required
           v-model="username"
-          placeholder="Username"
           id="username"
           type="text"
           class="validate"
@@ -19,7 +18,6 @@
           required
           v-model="password"
           type="password"
-          placeholder="Password"
           id="password"
           class="validate"
         />
@@ -33,6 +31,7 @@
 
 
 <script>
+
 export default {
   name: "login",
   data() {
@@ -44,7 +43,7 @@ export default {
   methods: {
     login: function() {
       const { username, password } = this;
-      this.$store.dispatch(AUTH_REQUEST, { username, password }).then(() => {
+      this.$store.dispatch("AUTH_REQUEST", { username, password }).then(() => {
         this.$router.push("/");
       });
     }

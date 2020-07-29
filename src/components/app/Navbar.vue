@@ -10,7 +10,7 @@
           <router-link to="/shop">Shop</router-link>
         </li>
 
-         <li>
+        <li>
           <router-link to="/login">Войти</router-link>
           <a @click="logout">Выйти</a>
         </li>
@@ -21,6 +21,14 @@
 
 <script>
 export default {
-    name: "Navbar"
-}
+  name: "Navbar",
+
+  methods: {
+    logout() {
+      this.$store.dispatch("AUTH_LOGOUT").then(() => {
+        this.$router.push("/login");
+      });
+    }
+  }
+};
 </script>
