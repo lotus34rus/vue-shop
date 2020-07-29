@@ -66,6 +66,10 @@ export default {
         AUTH_ERROR: (state) => {
             state.status = 'error'
         },
+        AUTH_LOGOUT: (state) => [
+            state.status = '',
+            state.token = ''
+        ]
 
     },
 

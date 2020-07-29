@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar :user="user.user" 
+            @userLogout = 'userLogout'
+    />
 
-    <router-view  />
+    <router-view @userLogin="userLogin" />
   </div>
 </template>
 
@@ -20,12 +22,21 @@ export default {
   components: {
     Navbar
   },
+  methods: {
+    async userLogin(){
+      const token = localStorage.getItem('user-token') || '';
+      if(this.$store.getters.isAuthenticated){
+        this.user = await this.$store.dispatch('getUserInfo', token);    
+      }
+    },
+
+    userLogout(){
+      this.user = {}
+    }
+  },
   
   async mounted() {
-    const token = localStorage.getItem('user-token') || '';
-    if(this.$store.getters.isAuthenticated){
-      this.user = await this.$store.dispatch('getUserInfo', token);    
-    }
+   this.userLogin()
   },
 };
 </script>

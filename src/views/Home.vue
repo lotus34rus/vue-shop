@@ -27,5 +27,7 @@ export default {
 <style lang="css">
     .parallax-container {
       height: 300px;
+      /* position: static; */
+      width: 100%;  
     }
 </style>
