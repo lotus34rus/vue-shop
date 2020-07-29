@@ -1,4 +1,3 @@
-import axios from "axios"
 import UserService from "../services/UserService"
 
 export default {
@@ -11,19 +10,18 @@ export default {
         AUTH_REQUEST: ({ commit, dispatch }, user) => {
             return new Promise((resolve, reject) => { // Промис используется для редиректа на главную после авторизации
                 commit("AUTH_REQUEST")
-                // axios({ url: 'auth', data: user, method: 'POST' }) // Данный запрос надо обработаьт на стороне Node.js
-                const response = UserService.userAuth(user)
+                const response = UserService.userReg(user)
                     .then(resp => {
-                        const token = resp.data.token
+                        const token = resp.data.token;
+                        console.log(token);
                         localStorage.setItem('user-token', token) // Устанавливаем токен в localstorage
                         commit("AUTH_SUCCESS", token)               //Меняем статус через мутацию
-                        dispatch("USER_REQUEST")
                         resolve(resp)
                     })
                     .catch(err => {
                         commit("AUTH_ERROR", err)
                         localStorage.removeItem('user-token') // Если произошла ошибка удалим все токены , которые есть в localstorage
-                        reject(err)
+                        console.log(err)
                     })
             })
         },
@@ -34,7 +32,23 @@ export default {
                 localStorage.removeItem('user-token') // удалим все токены , которые есть в localstorage
                 resolve()
             })
+        },
+
+
+        getUserInfo: async (state, token) => {
+            try {
+                const userInfo = await UserService.fetchUserInfo(token) //Получаем данные из mongoDB
+                                 .then(user=>{
+                                     return Promise.resolve( user.data );
+                                 })
+                                 
+                return userInfo;
+            } catch (e) {
+                throw e;
+            }
+
         }
+
 
 
 
@@ -58,5 +72,6 @@ export default {
     getters: {
         isAuthenticated: state => !!state.token,
         authStatus: state => state.status,
+
     }
 }

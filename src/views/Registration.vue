@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <form class="login" @submit.prevent="login">
-      <h1>Login</h1>
+      <h1>Sign In</h1>
       <div class="input-field col s6">
         <input
           required

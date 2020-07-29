@@ -11,7 +11,7 @@
         </li>
 
         <li>
-          <router-link to="/login">Войти</router-link>
+          <router-link to="/registration">Зарегестрироваться</router-link>
           <a @click="logout">Выйти</a>
         </li>
       </ul>

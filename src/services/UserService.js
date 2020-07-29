@@ -1,7 +1,11 @@
 import api from '@/services/api'
 
 export default {
-    userAuth (data) {
-    return api().post('auth', data)
+  userReg (data) {
+    return api().post('registration', data)
+  },
+
+  fetchUserInfo(token){
+    return api().get(`/user/${token}`)
   }
 }

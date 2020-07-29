@@ -12,9 +12,21 @@ import Navbar from "@/components/app/Navbar";
 
 export default {
   name: "App",
+  data() {
+    return {
+      user: {}
+    }
+  },
   components: {
     Navbar
-  }
+  },
+  
+  async mounted() {
+    const token = localStorage.getItem('user-token') || '';
+    if(this.$store.getters.isAuthenticated){
+      this.user = await this.$store.dispatch('getUserInfo', token);    
+    }
+  },
 };
 </script>
 
