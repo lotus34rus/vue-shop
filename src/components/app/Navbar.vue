@@ -9,6 +9,11 @@
         <li>
           <router-link to="/shop">Shop</router-link>
         </li>
+
+         <li>
+          <router-link to="/login">Войти</router-link>
+          <a @click="logout">Выйти</a>
+        </li>
       </ul>
     </div>
   </nav>
